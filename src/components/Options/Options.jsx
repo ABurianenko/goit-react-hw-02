@@ -1,4 +1,4 @@
-import {icon, feedbackButton, feedbackContainer, smileButtons} from './Options.module.css'
+import {feedbackButton, feedbackContainer, smileButtons, resetButton, resetSection} from './Options.module.css'
 
 const Options = ({ setVoteData, totalFeedback }) => {
     const updateFeedback = (feedbackType) => {
@@ -17,26 +17,22 @@ const Options = ({ setVoteData, totalFeedback }) => {
         <div className={feedbackContainer}>
             <div className={smileButtons}>
                 <button className={feedbackButton} onClick={()=>updateFeedback('good')}>
-                    <svg className={icon}>
-                        <use href='/src/svg/symbol-defs.svg#icon-satisfied'></use>
-                    </svg>
+                    Good
                 </button>
                 <button className={feedbackButton} onClick={() => updateFeedback('neutral')}>
-                    <svg className={icon}>
-                        <use href='/src/svg/symbol-defs.svg#icon-neutral'></use>
-                    </svg>
+                    Neutral
                 </button>
                 <button className={feedbackButton} onClick={() => updateFeedback('bad')}>
-                    <svg className={icon}>
-                        <use href='/src/svg/symbol-defs.svg#icon-sad'></use>
-                    </svg>
+                    Bad
                 </button>
             </div>
             
-            
-            {totalFeedback!==0 && (
-                <button onClick={handleReset}>Reset</button>
+            <div className={resetSection}>
+                {totalFeedback!==0 && (
+                <button className={resetButton} onClick={handleReset}>Reset</button>
             )}
+            </div>
+            
         </div>
     )
 }
