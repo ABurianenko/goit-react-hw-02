@@ -23,13 +23,18 @@ function App() {
     window.localStorage.setItem("statistics", JSON.stringify(voteData));
   }, [voteData])
 
+  const updateFeedback = (feedbackType) => {
+        setVoteData(prev => ({...prev, [feedbackType]: prev[feedbackType]+1}))
+    }
+
   const totalFeedback = voteData.good + voteData.neutral + voteData.bad;
+  const positiveFeedback = Math.round(((voteData.good + voteData.neutral) / totalFeedback) * 100)
 
   return (
     <>
       <Description />
-      <Options setVoteData={setVoteData} totalFeedback={totalFeedback}/>
-      {totalFeedback ? <Feedback voteData={voteData} totalFeedback={totalFeedback}/> : <Notification voteData={voteData} />}
+      <Options setVoteData={setVoteData} updateFeedback={updateFeedback} totalFeedback={totalFeedback}/>
+      {totalFeedback ? <Feedback voteData={voteData} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} /> : <Notification voteData={voteData} />}
     </>
   )
 }

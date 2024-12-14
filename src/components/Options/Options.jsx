@@ -1,9 +1,6 @@
 import {feedbackButton, feedbackContainer, smileButtons, resetButton, resetSection} from './Options.module.css'
 
-const Options = ({ setVoteData, totalFeedback }) => {
-    const updateFeedback = (feedbackType) => {
-        setVoteData(prev => ({...prev, [feedbackType]: prev[feedbackType]+1}))
-    }
+const Options = ({ setVoteData, totalFeedback, updateFeedback }) => {
 
     const handleReset = () => {
         setVoteData({

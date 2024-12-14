@@ -1,5 +1,5 @@
-const Feedback = ({ voteData, totalFeedback }) => {
-    const positiveFeedback = Math.round(((voteData.good + voteData.neutral) / totalFeedback) * 100)
+const Feedback = ({ voteData, totalFeedback, positiveFeedback }) => {
+    
     return (
         <div>
             <ul>
