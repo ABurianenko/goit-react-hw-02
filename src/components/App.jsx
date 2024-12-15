@@ -27,14 +27,14 @@ function App() {
         setVoteData(prev => ({...prev, [feedbackType]: prev[feedbackType]+1}))
     }
 
-  const totalFeedback = voteData.good + voteData.neutral + voteData.bad;
+  const totalFeedback = voteData.good + voteData.bad;
   const positiveFeedback = Math.round(((voteData.good + voteData.neutral) / totalFeedback) * 100)
 
   return (
     <>
       <Description />
       <Options setVoteData={setVoteData} updateFeedback={updateFeedback} totalFeedback={totalFeedback}/>
-      {totalFeedback ? <Feedback voteData={voteData} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} /> : <Notification voteData={voteData} />}
+      {totalFeedback ? <Feedback voteData={voteData} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} /> : <Notification />}
     </>
   )
 }
