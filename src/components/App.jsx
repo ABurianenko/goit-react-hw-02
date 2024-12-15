@@ -27,8 +27,8 @@ function App() {
         setVoteData(prev => ({...prev, [feedbackType]: prev[feedbackType]+1}))
     }
 
-  const totalFeedback = voteData.good + voteData.bad;
-  const positiveFeedback = Math.round(((voteData.good + voteData.neutral) / totalFeedback) * 100)
+  const totalFeedback = voteData.good + voteData.neutral + voteData.bad;
+  const positiveFeedback = Math.round((voteData.good / totalFeedback) * 100)
 
   return (
     <>
