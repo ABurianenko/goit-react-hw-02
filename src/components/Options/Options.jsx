@@ -1,14 +1,7 @@
 import {feedbackButton, feedbackContainer, smileButtons, resetButton, resetSection} from './Options.module.css'
 
-const Options = ({ setVoteData, totalFeedback, updateFeedback }) => {
+const Options = ({ handleReset, totalFeedback, updateFeedback }) => {
 
-    const handleReset = () => {
-        setVoteData({
-            good: 0,
-	        neutral: 0,
-	        bad: 0
-        })
-    }
 
     return (
         <div className={feedbackContainer}>
